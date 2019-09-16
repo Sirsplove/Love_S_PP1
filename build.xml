@@ -1,0 +1,38 @@
+<?xml version = "1.0"?>
+<project name= "Using Regular Expressions" default="usage" basedir=".">
+	
+	<target name="usage">
+		
+		<echo>Build: This will build the class files we need.</echo>
+		<echo>Usage: This will print the message.</echo>
+		<echo>Clean: This will clean/clears all of the build files.</echo>
+		<echo>Run: 	 This will run compiled java programs. </echo>
+
+	</target>
+	
+	<target name="clean">
+
+		<echo>Deleting the .class files</echo>
+		<delete dir="build"/>
+
+	</target>
+
+	<target name="build">
+
+		<echo>Compiling the .java source files</echo>
+		<mkdir dir="build/classes"/>
+		<javac includeantruntime="false" srcdir="." destdir="build/classes" />
+
+	</target>
+
+	<target name="run">
+
+		<echo>Running the compiled java files.</echo>
+		<java classname="Application" classpath="build/classes">
+			<arg value="auth.log" />
+			<arg value="${arg1}" />
+		</java>
+
+	</target>
+
+</project>
